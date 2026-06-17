@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const DOWNLOAD_URL = "https://releases.shoflow.io/mac/ShoFlow-0.1.0-universal.dmg";
+
+const features = [
+  {
+    title: "My Flows",
+    body: "Visual graphs of what your automations actually do — generated from your jobs and instruction files, no annotation required.",
+  },
+  {
+    title: "Connectors & Skills",
+    body: "See every MCP connector and skill your agents can reach, each with its real brand logo and tools, in one place.",
+  },
+  {
+    title: "Schedule & manage",
+    body: "Create and edit scheduled jobs across Claude Code and Cowork — right from a calm, native Mac window.",
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="overflow-x-clip">
+    <!-- Hero -->
+    <section class="relative">
+      <div class="hero-glow pointer-events-none absolute inset-x-0 top-0 h-[560px]"></div>
+
+      <div class="relative mx-auto max-w-[1080px] px-5 pt-36 text-center sm:pt-44">
+        <p data-animate class="mb-6 font-mono text-[12px] uppercase tracking-[0.18em] text-faint">
+          Native Mac app · Free
+        </p>
+
+        <h1
+          data-animate
+          class="delay-100 mx-auto max-w-[16ch] font-serif text-[clamp(2.6rem,7vw,5.25rem)] font-medium leading-[1.04] tracking-[-0.01em] text-ink"
+        >
+          Everything your agents do, <em class="italic text-accent">in one window.</em>
+        </h1>
+
+        <p
+          data-animate
+          class="delay-200 mx-auto mt-7 max-w-[44ch] text-[17px] leading-relaxed text-muted sm:text-[18px]"
+        >
+          ShoFlow reads your Claude Code &amp; Cowork setup and shows your scheduled jobs,
+          automation flows, connectors, and skills — beautifully, in one place.
+        </p>
+
+        <div data-animate class="delay-300 mt-9 flex flex-col items-center gap-3">
+          <a
+            href={DOWNLOAD_URL}
+            class="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-[15px] font-semibold text-paper shadow-lift transition-transform duration-150 hover:-translate-y-0.5"
+          >
+            <svg viewBox="0 0 16 16" fill="currentColor" class="h-[17px] w-[17px]"><path d="M11.18 8.43c-.02-1.86 1.52-2.75 1.59-2.8-.87-1.27-2.22-1.44-2.7-1.46-1.15-.12-2.24.67-2.83.67-.58 0-1.48-.66-2.43-.64-1.25.02-2.4.73-3.05 1.85-1.3 2.25-.33 5.59.93 7.42.62.9 1.36 1.9 2.32 1.86.93-.04 1.28-.6 2.4-.6 1.12 0 1.43.6 2.41.58 1-.02 1.63-.91 2.24-1.81.71-1.04 1-2.05 1.01-2.1-.02-.01-1.94-.74-1.96-2.95l.03-.35zM9.42 3.01c.51-.62.86-1.49.76-2.35-.74.03-1.64.49-2.17 1.11-.47.55-.89 1.43-.78 2.27.83.07 1.67-.42 2.19-1.03z"></path></svg>
+            Download for macOS
+          </a>
+          <p class="font-mono text-[12px] tracking-[0.04em] text-faint">
+            Universal · Apple Silicon &amp; Intel · macOS 11+
+          </p>
+        </div>
+
+        <!-- App screenshot -->
+        <div data-animate class="delay-400 mt-16 sm:mt-20">
+          <div class="mx-auto max-w-[1000px] overflow-hidden rounded-2xl border border-line bg-card shadow-lift">
+            <img
+              src="/screenshots/app.png"
+              alt="ShoFlow showing a flow graph of an automation"
+              width="2000"
+              height="1250"
+              class="block w-full"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="mx-auto max-w-[1080px] px-5 py-24 sm:py-32">
+      <h2 data-animate class="font-serif text-[clamp(1.8rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.01em] text-ink">
+        A calm window onto your agents.
+      </h2>
+      <p data-animate class="delay-100 mt-3 max-w-[46ch] text-[16px] leading-relaxed text-muted">
+        ShoFlow doesn't run your agents — it reads what's already on your Mac and shows it,
+        clearly. Read-mostly, local, and quiet.
+      </p>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-3">
+        {features.map((f, i) => (
+          <div
+            data-animate
+            class={`delay-${(i + 1) * 100} rounded-2xl border border-line bg-card p-6 shadow-soft`}
+          >
+            <div class="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
+              <span class="font-serif text-[18px] font-semibold">{i + 1}</span>
+            </div>
+            <h3 class="text-[17px] font-semibold tracking-tight text-ink">{f.title}</h3>
+            <p class="mt-2 text-[14.5px] leading-relaxed text-muted">{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="mx-auto max-w-[1080px] px-5 pb-28">
+      <div data-animate class="rounded-3xl border border-line bg-surface px-8 py-16 text-center shadow-soft">
+        <h2 class="mx-auto max-w-[18ch] font-serif text-[clamp(1.9rem,4.5vw,3rem)] font-medium leading-[1.08] tracking-[-0.01em] text-ink">
+          See what your agents are up to.
+        </h2>
+        <a
+          href={DOWNLOAD_URL}
+          class="mt-8 inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-[15px] font-semibold text-paper shadow-lift transition-transform duration-150 hover:-translate-y-0.5"
+        >
+          <svg viewBox="0 0 16 16" fill="currentColor" class="h-[17px] w-[17px]"><path d="M11.18 8.43c-.02-1.86 1.52-2.75 1.59-2.8-.87-1.27-2.22-1.44-2.7-1.46-1.15-.12-2.24.67-2.83.67-.58 0-1.48-.66-2.43-.64-1.25.02-2.4.73-3.05 1.85-1.3 2.25-.33 5.59.93 7.42.62.9 1.36 1.9 2.32 1.86.93-.04 1.28-.6 2.4-.6 1.12 0 1.43.6 2.41.58 1-.02 1.63-.91 2.24-1.81.71-1.04 1-2.05 1.01-2.1-.02-.01-1.94-.74-1.96-2.95l.03-.35zM9.42 3.01c.51-.62.86-1.49.76-2.35-.74.03-1.64.49-2.17 1.11-.47.55-.89 1.43-.78 2.27.83.07 1.67-.42 2.19-1.03z"></path></svg>
+          Download for macOS
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-line">
+      <div class="mx-auto flex max-w-[1080px] flex-col items-center justify-between gap-4 px-5 py-8 sm:flex-row">
+        <div class="flex items-center gap-2.5">
+          <svg viewBox="0 0 40 40" fill="none" class="h-5 w-5 text-ink">
+            <path d="M9.5 30.5 L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M24 16 L30.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="7" cy="33" r="3.2" fill="currentColor"></circle>
+            <circle cx="33" cy="7" r="3.2" fill="currentColor"></circle>
+            <circle cx="20" cy="20" r="8.4" stroke="currentColor" stroke-width="2.4"></circle>
+            <path d="M17.4 16.3 L24 20 L17.4 23.7 Z" fill="#E85D42"></path>
+          </svg>
+          <span class="text-[14px] font-semibold text-ink">Sho<span class="text-accent">f</span>low</span>
+        </div>
+        <p class="font-mono text-[12px] text-faint">Local-only · no telemetry · © 2026 ShoFlow</p>
+      </div>
+    </footer>
+  </main>
+</Layout>

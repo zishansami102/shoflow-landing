@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/mac/ShoFlow-0.1.0-universal.dmg",
+      "destination": "https://github.com/zishansami102/shoflow-landing/releases/download/v0.1.0/ShoFlow-0.1.0-universal.dmg",
+      "permanent": false
+    }
+  ]
+}

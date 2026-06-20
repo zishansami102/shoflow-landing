@@ -6,6 +6,7 @@ html {
   scroll-behavior: smooth;
   background-color: #F3EDE0;
   color-scheme: light;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,6 +15,15 @@ body {
   color: #221D16;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* React Flow inside the hero card must never push page width. */
+.react-flow,
+.react-flow__renderer,
+.react-flow__pane {
+  max-width: 100%;
 }
 
 ::-webkit-scrollbar { width: 8px; }

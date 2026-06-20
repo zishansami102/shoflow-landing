@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import MockGraph from "../components/MockGraph.tsx";
 
 const DOWNLOAD_URL = "/mac/ShoFlow-0.1.0-universal.dmg";
 
@@ -61,18 +62,19 @@ const features = [
           </p>
         </div>
 
-        <!-- App screenshot -->
+        <!-- Interactive app preview — the real React Flow engine, mocked data -->
         <div data-animate class="delay-400 mt-16 sm:mt-20">
-          <div class="mx-auto max-w-[1000px] overflow-hidden rounded-2xl border border-line bg-card shadow-lift h-fit">
-            <img
-              src="/screenshots/app.png"
-              alt="ShoFlow showing a My Flows graph with connected app nodes"
-              width="2560"
-              height="1598"
-              class="block w-full"
-              loading="eager"
-            />
+          <div
+            class="relative mx-auto w-full max-w-[1040px] overflow-hidden rounded-2xl border border-line shadow-lift"
+            style="height: clamp(440px, 62vh, 600px); background: #15120F;"
+          >
+            <div class="absolute inset-0">
+              <MockGraph client:visible />
+            </div>
           </div>
+          <p class="mt-3 font-mono text-[11px] tracking-[0.04em] text-faint">
+            ↑ Live preview — drag, zoom, and click a node. One demo flow.
+          </p>
         </div>
       </div>
     </section>

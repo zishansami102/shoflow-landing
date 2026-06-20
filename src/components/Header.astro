@@ -2,7 +2,7 @@
 const DOWNLOAD_URL = "/mac/ShoFlow-0.1.0-universal.dmg";
 ---
 
-<header class="fixed inset-x-0 top-3 sm:top-5 z-50 px-4">
+<header id="site-nav" class="fixed inset-x-0 top-3 sm:top-5 z-50 px-4 transition-transform duration-300 will-change-transform">
   <nav
     class="mx-auto flex h-14 max-w-[1080px] items-center justify-between gap-4 rounded-full border border-line bg-card/80 px-4 pl-5 shadow-soft backdrop-blur-md"
   >
@@ -30,3 +30,18 @@ const DOWNLOAD_URL = "/mac/ShoFlow-0.1.0-universal.dmg";
     </div>
   </nav>
 </header>
+
+<script is:inline>
+  // Hide the nav while scrolling down (so it doesn't overlap the app preview),
+  // reveal it on scroll up.
+  (() => {
+    const nav = document.getElementById("site-nav");
+    if (!nav) return;
+    let last = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      nav.style.transform = y > 140 && y > last ? "translateY(-160%)" : "";
+      last = y;
+    }, { passive: true });
+  })();
+</script>

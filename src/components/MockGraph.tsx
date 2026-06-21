@@ -99,7 +99,7 @@ const GROUPS: { label: string; ids: string[] }[] = [
   { label: "Triggers", ids: ["twitter", "writer"] },
   { label: "Files", ids: ["identity", "voice"] },
   { label: "Skills", ids: ["skill"] },
-  { label: "Connected apps", ids: ["chrome", "sheets", "telegram"] },
+  { label: "Apps", ids: ["chrome", "sheets", "telegram"] },
 ];
 
 /* ── centeredLayout — ported from the app (flowLayout.ts) ────────────────── */
@@ -349,7 +349,7 @@ function Inner() {
   const presentOps: Op[] = ["read", "write", "run"];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", background: C.base, fontFamily: UI }}>
+    <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", background: C.base, fontFamily: UI, textAlign: "left" }}>
       {/* React Flow defaults nodes to text-align:center; the app's cards are left-aligned. */}
       <style>{`.mflow svg{width:100%!important;height:auto!important;max-width:100%!important;} .react-flow__node{text-align:left;}`}</style>
 
@@ -379,7 +379,7 @@ function Inner() {
         <div style={{ width: 214, flexShrink: 0, background: C.surface, borderRight: `1px solid ${C.borderSub}`, display: "flex", flexDirection: "column", overflow: "hidden" }}>
           <button onClick={back} style={{ display: "flex", alignItems: "center", gap: 7, margin: 10, marginBottom: 4, padding: "8px 10px", cursor: "pointer", background: "transparent", border: "none", borderRadius: 8, fontFamily: UI, fontSize: 12.5, fontWeight: 600, color: C.text2, textAlign: "left" }}>← Back to My Flows</button>
           <div style={{ height: 1, background: C.borderSub }} />
-          <div style={{ padding: "11px 12px 4px", fontFamily: MONO, fontSize: 8.5, textTransform: "uppercase", letterSpacing: "0.12em", color: C.text3 }}>In this flow</div>
+          <div className="px-3 py-2 text-xs font-mono tracking-wide text-muted uppercase" style={{ padding: "11px 12px 4px", fontFamily: MONO, fontSize: 8.5, textTransform: "uppercase", letterSpacing: "0.12em", color: C.text3 }}>In this flow</div>
           <div style={{ overflowY: "auto", padding: "0 8px 10px" }}>
             {GROUPS.map((grp) => (
               <div key={grp.label} style={{ marginBottom: 6 }}>
